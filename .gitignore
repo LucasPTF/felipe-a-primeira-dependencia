@@ -7,3 +7,5 @@ validation/*.txt
 *.log
 .env*
 !.env.example
+
+.vercel

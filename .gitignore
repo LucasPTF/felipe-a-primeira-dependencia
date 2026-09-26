@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vercel/
+validation/*.png
+validation/*.json
+validation/*.txt
+*.log
+.env*
+!.env.example

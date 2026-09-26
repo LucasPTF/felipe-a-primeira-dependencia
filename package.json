@@ -1,0 +1,17 @@
+{
+  "name": "felipe-a-primeira-dependencia",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "npm run build && node tests/technical.mjs",
+    "check:browser": "node tests/browser-check.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "vite": "latest"
+  }
+}

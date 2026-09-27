@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { chromium } from "@playwright/test";
 
-const baseUrl = process.env.SITE_URL || "http://127.0.0.1:5173";
+const baseUrl = process.env.SITE_URL || "http://127.0.0.1:4173";
 const expectedHeroes = {
   "/a1": "Organize a primeira dependência.",
   "/a2": "Delegar tarefa não delega decisão.",
@@ -19,6 +19,8 @@ for (const [route, title] of Object.entries(expectedHeroes)) {
   assert.equal(await page.locator('a[href="#ingresso"]').count() >= 4, true, `CTAs seguros ausentes em ${route}`);
   assert.equal(await page.locator(".section-problem").isVisible(), true, `Conteúdo principal oculto em ${route}`);
   assert.equal(await page.locator(".lote-card").count(), 3, `Comparação de lotes incompleta em ${route}`);
+  assert.equal((await page.locator(".lote-card.is-current > span").innerText()).trim(), "LOTE 1", `Lote atual incorreto em ${route}`);
+  assert.equal((await page.locator(".lote-card.is-current small").innerText()).trim(), "Atual", `Estado do lote 1 incorreto em ${route}`);
 
   const shared = await page.locator("main > section:not(.hero):not(.event-bar)").allInnerTexts();
   sharedCopies.push(shared.join("\n").replace(/\s+/g, " ").trim());

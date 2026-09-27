@@ -378,7 +378,7 @@ p {
   position: relative;
   width: 100%;
   max-width: 520px;
-  aspect-ratio: 1.08;
+  aspect-ratio: 13 / 12;
   margin-inline: auto;
   border: 1px solid rgba(255, 253, 248, 0.14);
   border-radius: var(--radius-lg);
@@ -404,15 +404,20 @@ p {
 
 .map-line {
   position: absolute;
-  inset: 8% 4% 0;
-  width: 92%;
-  height: 82%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: visible;
+}
+
+.map-line-mobile {
+  display: none;
 }
 
 .map-path {
   fill: none;
   stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
 }
 
 .map-path-base {
@@ -447,6 +452,7 @@ p {
   font-size: 0.7rem;
   font-weight: 800;
   line-height: 1.2;
+  transform: translate(-50%, -50%);
 }
 
 .map-node span {
@@ -465,28 +471,28 @@ p {
 }
 
 .node-one {
-  bottom: 8%;
-  left: 2%;
+  top: 81.25%;
+  left: 14.423%;
 }
 
 .node-two {
-  bottom: 34%;
-  left: 24%;
+  top: 57.292%;
+  left: 31.731%;
 }
 
 .node-three {
-  bottom: 12%;
-  left: 49%;
+  top: 79.167%;
+  left: 50%;
 }
 
 .node-four {
-  top: 25%;
-  right: 8%;
+  top: 45.833%;
+  left: 70.192%;
 }
 
 .node-five {
-  top: 5%;
-  right: 0;
+  top: 19.792%;
+  left: 80.769%;
 }
 
 .event-bar {
@@ -715,48 +721,60 @@ p {
 .live-orbit {
   position: relative;
   aspect-ratio: 1;
-  border: 1px solid var(--line-light);
   border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 173, 79, 0.16), transparent 30%);
 }
 
-.live-orbit::before,
-.live-orbit::after {
+.orbit-track {
   position: absolute;
-  inset: 16%;
   border: 1px solid rgba(255, 253, 248, 0.14);
   border-radius: 50%;
-  content: "";
+  animation: orbit-turn linear infinite paused;
 }
 
-.live-orbit::after {
+.orbit-outer {
+  inset: 0;
+  animation-duration: 18s;
+  animation-delay: -4.5s;
+}
+
+.orbit-middle {
+  inset: 16%;
+  animation-duration: 13s;
+  animation-delay: -8s;
+  animation-direction: reverse;
+}
+
+.orbit-inner {
   inset: 32%;
-  background: radial-gradient(circle, rgba(224, 173, 79, 0.26), transparent 70%);
+  animation-duration: 9s;
+  animation-delay: -2.25s;
 }
 
-.live-orbit span {
+.is-running .orbit-track {
+  animation-play-state: running;
+}
+
+.orbit-track span {
   position: absolute;
   z-index: 2;
+  top: 0;
+  left: 50%;
   width: 14px;
   height: 14px;
   background: var(--amber);
   border: 4px solid var(--forest);
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(224, 173, 79, 0.5);
+  transform: translate(-50%, -50%);
 }
 
-.live-orbit span:nth-child(1) {
-  top: 7%;
-  left: 48%;
-}
-
-.live-orbit span:nth-child(2) {
-  top: 51%;
-  right: 15%;
-}
-
-.live-orbit span:nth-child(3) {
-  bottom: 17%;
-  left: 17%;
+.orbit-core {
+  position: absolute;
+  inset: 43%;
+  background: var(--amber);
+  border-radius: 50%;
+  box-shadow: 0 0 38px rgba(224, 173, 79, 0.45);
 }
 
 .split-editorial {
@@ -806,24 +824,21 @@ p {
   list-style: none;
 }
 
-.mapp-route::before {
-  position: absolute;
-  top: 29px;
-  right: 5%;
-  left: 5%;
-  height: 2px;
-  background: var(--clay);
-  content: "";
-}
-
 .mapp-route li {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: start;
-  gap: 18px;
-  padding: 0 10px 20px 0;
+  padding: 0 14px 28px 0;
+}
+
+.mapp-route li:not(:nth-child(3n))::before {
+  position: absolute;
+  z-index: -1;
+  top: 28px;
+  left: 56px;
+  width: calc(100% + 44px - 56px);
+  height: 2px;
+  background: var(--clay);
+  content: "";
 }
 
 .route-marker {
@@ -842,7 +857,7 @@ p {
 
 .mapp-route strong {
   display: block;
-  margin: 11px 0 8px;
+  margin: 18px 0 8px;
   font-family: "Sora", sans-serif;
 }
 
@@ -1094,6 +1109,10 @@ p {
   opacity: 0.65;
 }
 
+.lote-card.is-next {
+  opacity: 0.78;
+}
+
 .lote-card.is-current {
   color: var(--paper);
   background: var(--forest);
@@ -1163,52 +1182,55 @@ p {
 
 .route-graphic {
   position: relative;
-  display: grid;
   aspect-ratio: 0.9;
-  place-items: center;
   border: 1px solid var(--line);
   border-radius: 46% 54% 48% 52% / 55% 43% 57% 45%;
   background: var(--cream);
 }
 
-.route-graphic::before,
-.route-graphic::after {
-  position: absolute;
-  width: 2px;
-  height: 76%;
-  background: var(--clay);
-  content: "";
+.route-graphic svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.route-graphic::after {
-  width: 76%;
-  height: 2px;
+.route-path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 
-.route-graphic span {
-  position: absolute;
-  z-index: 1;
-  width: 24px;
-  height: 24px;
-  background: var(--paper);
-  border: 6px solid var(--clay-dark);
-  border-radius: 50%;
+.route-path-base {
+  stroke: rgba(23, 33, 28, 0.18);
+  stroke-width: 8;
 }
 
-.route-graphic span:nth-child(1) {
-  top: 11%;
+.route-path-flow {
+  stroke: var(--clay);
+  stroke-width: 4;
+  stroke-dasharray: 11 16;
+  animation: route-flow 2.4s linear infinite paused;
 }
 
-.route-graphic span:nth-child(2) {
-  right: 11%;
+.is-running .route-path-flow {
+  animation-play-state: running;
 }
 
-.route-graphic span:nth-child(3) {
-  bottom: 11%;
+.route-graphic marker path {
+  fill: var(--clay);
 }
 
-.route-graphic span:nth-child(4) {
-  left: 11%;
+.route-node {
+  fill: var(--paper);
+  stroke: var(--clay-dark);
+  stroke-width: 8;
+  vector-effect: non-scaling-stroke;
+}
+
+.route-node-end {
+  fill: var(--amber);
 }
 
 .route-grid > div:last-child {
@@ -1503,6 +1525,18 @@ p {
   }
 }
 
+@keyframes orbit-turn {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes route-flow {
+  to {
+    stroke-dashoffset: -54;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
     transform: translateY(-2px);
@@ -1583,6 +1617,10 @@ p {
   }
 
   .mapp-route::before {
+    display: none;
+  }
+
+  .mapp-route li:not(:nth-child(3n))::before {
     display: none;
   }
 
@@ -1707,7 +1745,15 @@ p {
   }
 
   .operational-map {
-    aspect-ratio: 0.95;
+    aspect-ratio: 2 / 3;
+  }
+
+  .map-line-desktop {
+    display: none;
+  }
+
+  .map-line-mobile {
+    display: block;
   }
 
   .map-node {
@@ -1725,16 +1771,29 @@ p {
     font-size: 0.5rem;
   }
 
+  .node-one {
+    top: 19.792%;
+    left: 21.875%;
+  }
+
   .node-two {
-    left: 18%;
+    top: 36.458%;
+    left: 70.313%;
   }
 
   .node-three {
-    left: 45%;
+    top: 53.125%;
+    left: 25%;
   }
 
   .node-four {
-    right: 3%;
+    top: 69.792%;
+    left: 70.313%;
+  }
+
+  .node-five {
+    top: 87.5%;
+    left: 34.375%;
   }
 
   .event-bar-grid {
@@ -1767,6 +1826,42 @@ p {
 
   .mapp-route li {
     grid-template-columns: auto 1fr;
+  }
+
+  .mapp-route {
+    position: relative;
+    gap: 0;
+    padding-left: 0;
+  }
+
+  .mapp-route::before {
+    display: none;
+  }
+
+  .mapp-route li {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 18px;
+    padding: 0 0 32px;
+  }
+
+  .mapp-route li:not(:last-child)::after {
+    position: absolute;
+    z-index: -1;
+    top: 28px;
+    left: 28px;
+    width: 2px;
+    height: 100%;
+    background: var(--clay);
+    content: "";
+  }
+
+  .mapp-route li:last-child {
+    padding-bottom: 0;
+  }
+
+  .mapp-route strong {
+    margin-top: 11px;
   }
 
   .authority-numbers {
@@ -1825,5 +1920,10 @@ p {
   .map-path-flow {
     animation: none !important;
     stroke-dasharray: none;
+  }
+
+  .orbit-track,
+  .route-path-flow {
+    animation: none !important;
   }
 }

@@ -50,9 +50,13 @@ const cta = (label, className = "button button-primary") => `
 const operationalMap = () => `
   <div class="operational-map motion-region" aria-label="Primeiro desenho operacional">
     <div class="map-title">da dependência à autonomia</div>
-    <svg class="map-line" viewBox="0 0 520 300" aria-hidden="true">
-      <path class="map-path map-path-base" d="M58 252 C120 230 112 158 190 156 S276 220 326 136 S400 42 466 58" />
-      <path class="map-path map-path-flow" d="M58 252 C120 230 112 158 190 156 S276 220 326 136 S400 42 466 58" />
+    <svg class="map-line map-line-desktop" viewBox="0 0 520 480" aria-hidden="true">
+      <path class="map-path map-path-base" d="M75 390 C112 390 130 275 165 275 C205 275 224 380 260 380 C310 380 320 220 365 220 C400 220 400 95 420 95" />
+      <path class="map-path map-path-flow" d="M75 390 C112 390 130 275 165 275 C205 275 224 380 260 380 C310 380 320 220 365 220 C400 220 400 95 420 95" />
+    </svg>
+    <svg class="map-line map-line-mobile" viewBox="0 0 320 480" aria-hidden="true">
+      <path class="map-path map-path-base" d="M70 95 C100 115 195 145 225 175 C195 205 110 225 80 255 C110 285 195 305 225 335 C195 365 140 390 110 420" />
+      <path class="map-path map-path-flow" d="M70 95 C100 115 195 145 225 175 C195 205 110 225 80 255 C110 285 195 305 225 335 C195 365 140 390 110 420" />
     </svg>
     <div class="map-node node-one"><span>01</span>Recorrência</div>
     <div class="map-node node-two"><span>02</span>Responsável</div>
@@ -190,7 +194,12 @@ const renderSalesPage = (route) => {
 
       <section class="section section-live section-dark reveal">
         <div class="shell live-grid">
-          <div class="live-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="live-orbit motion-region" aria-hidden="true">
+            <div class="orbit-track orbit-outer"><span></span></div>
+            <div class="orbit-track orbit-middle"><span></span></div>
+            <div class="orbit-track orbit-inner"><span></span></div>
+            <i class="orbit-core"></i>
+          </div>
           <div>
             <p class="eyebrow">CONSTRUÇÃO GUIADA</p>
             <h2>Não é uma aula para assistir passivamente</h2>
@@ -289,9 +298,9 @@ const renderSalesPage = (route) => {
             <h3>Três etapas de ingresso</h3>
           </div>
           <div class="lotes-grid" role="list" aria-label="Comparação de lotes">
-            <article class="lote-card is-closed" role="listitem"><span>Lote 1</span><strong>R$ 29,90</strong><small>Encerrado</small></article>
-            <article class="lote-card is-closed" role="listitem"><span>Lote 2</span><strong>R$ 79,90</strong><small>Encerrado</small></article>
-            <article class="lote-card is-current" role="listitem"><span>Lote 3</span><strong>R$ 197</strong><small>Atual</small></article>
+            <article class="lote-card is-current" role="listitem"><span>Lote 1</span><strong>R$ 29,90</strong><small>Atual</small></article>
+            <article class="lote-card is-next" role="listitem"><span>Lote 2</span><strong>R$ 79,90</strong><small>Próximo</small></article>
+            <article class="lote-card is-next" role="listitem"><span>Lote 3</span><strong>R$ 197</strong><small>Próximo</small></article>
           </div>
         </div>
       </section>
@@ -315,7 +324,21 @@ const renderSalesPage = (route) => {
 
       <section class="section section-route reveal">
         <div class="shell route-grid">
-          <div class="route-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <div class="route-graphic motion-region" aria-hidden="true">
+            <svg viewBox="0 0 420 480">
+              <defs>
+                <marker id="route-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" />
+                </marker>
+              </defs>
+              <path class="route-path route-path-base" d="M70 410 C70 350 130 350 130 290 C130 230 240 250 240 180 C240 115 315 120 350 70" />
+              <path class="route-path route-path-flow" d="M70 410 C70 350 130 350 130 290 C130 230 240 250 240 180 C240 115 315 120 350 70" marker-end="url(#route-arrow)" />
+              <circle class="route-node" cx="70" cy="410" r="14" />
+              <circle class="route-node" cx="130" cy="290" r="14" />
+              <circle class="route-node" cx="240" cy="180" r="14" />
+              <circle class="route-node route-node-end" cx="350" cy="70" r="17" />
+            </svg>
+          </div>
           <div>
             <p class="eyebrow">ROTA MAPP</p>
             <h2>O primeiro desenho não é o fim da rota</h2>

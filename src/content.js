@@ -1,8 +1,8 @@
 export const event = {
   name: "A Primeira Dependência",
-  dateLong: "07 de outubro de 2026, às 9h",
-  dateCompact: "07/10/2026 · 9h · ao vivo · 2h30 · R$ 197",
-  dateIso: "2026-10-07T09:00:00-03:00",
+  dateLong: "29 de outubro de 2026, às 9h",
+  dateCompact: "29/10/2026 · 9h · ao vivo · 2h30 · R$ 197",
+  dateIso: "2026-10-29T09:00:00-03:00",
   duration: "2h30",
   price: "R$ 197",
 };
@@ -24,7 +24,7 @@ export const heroes = {
     context: [
       "Sua equipe pode executar muito e ainda depender de você para escolher o que fazer quando a situação muda. O problema não se resolve pedindo “mais autonomia”; ele precisa de critérios visíveis e limites claros.",
       "No workshop A Primeira Dependência, você escolhe uma dessas decisões recorrentes e a transforma no primeiro desenho operacional dentro da lógica MAPP.",
-      "Demonstração ao vivo do método + experiência prática do Felipe em gestão de operações de varejo.",
+      "Demonstração ao vivo do método + experiência prática da Alesandra Galdino em gestão de operações de varejo.",
     ],
     cta: "QUERO ORGANIZAR ESSA DECISÃO · R$ 197",
   },
@@ -36,7 +36,7 @@ export const heroes = {
     context: [
       "Quando tudo volta para a liderança, a explicação mais fácil é dizer que a equipe não assume. Mas, em muitas rotinas, as pessoas recebem a tarefa sem receber o critério para decidir quando algo foge do comum.",
       "A Primeira Dependência cria esse primeiro desenho sobre um caso real da sua operação, sem tentar reorganizar a empresa inteira de uma vez.",
-      "Processo demonstrado ao vivo, ficha aplicada e experiência do Felipe com equipes e gestão de lojas.",
+      "Processo demonstrado ao vivo, ficha aplicada e experiência da Alesandra Galdino com equipes e gestão de lojas.",
     ],
     cta: "QUERO CRIAR AUTONOMIA COM CRITÉRIO · R$ 197",
   },
@@ -122,7 +122,7 @@ export const faq = [
   {
     question: "Preciso ser do varejo de moda?",
     answer:
-      "O varejo de moda é o território principal de experiência e exemplos do Felipe, mas o workshop foi estruturado para donos e líderes de varejo com equipe e recorrências operacionais reais.",
+      "O varejo de moda é o território principal de experiência e exemplos da Alesandra Galdino, mas o workshop foi estruturado para donos e líderes de varejo com equipe e recorrências operacionais reais.",
   },
   {
     question: "Preciso levar um processo pronto?",
@@ -147,7 +147,7 @@ export const faq = [
   {
     question: "Quando acontece?",
     answer:
-      "Em 07 de outubro de 2026, às 9h. A sessão é ao vivo e tem duração prevista de 2h30.",
+      "Em 29 de outubro de 2026, às 9h. A sessão é ao vivo e tem duração prevista de 2h30.",
   },
   {
     question: "Qual é o investimento?",

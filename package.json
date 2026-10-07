@@ -9,7 +9,8 @@
     "preview": "vite preview --host 127.0.0.1",
     "check": "npm run build && node tests/technical.mjs",
     "check:browser": "node tests/browser-check.mjs",
-    "check:map": "node tests/map-check.mjs"
+    "check:map": "node tests/map-check.mjs",
+    "check:event": "node tests/event-update.mjs"
   },
   "devDependencies": {
     "@playwright/test": "latest",

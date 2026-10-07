@@ -139,7 +139,7 @@ const renderSalesPage = (route) => {
             <span class="event-bar-label">Workshop ao vivo</span>
             <strong>A Primeira Dependência</strong>
           </div>
-          <div><span>07 de outubro de 2026, às 9h</span><span>2h30 em sala virtual</span></div>
+          <div><span>${event.dateLong}</span><span>2h30 em sala virtual</span></div>
           ${countdown()}
         </div>
       </section>
@@ -152,7 +152,7 @@ const renderSalesPage = (route) => {
           </div>
           <div class="problem-copy">
             <p>A loja funciona, as pessoas trabalham e as rotinas acontecem. Mas basta surgir uma dúvida fora do padrão, uma decisão um pouco diferente, um erro recorrente ou uma cobrança importante para o assunto voltar à sua mesa.</p>
-            <p class="cadence">Você responde.<br />Resolve.<br />Corrige.<br />Explica de novo.</p>
+            <p class="cadence">Você responde.<br /> Resolve.<br /> Corrige.<br /> Explica de novo.</p>
             <p>E a operação segue — até a mesma situação reaparecer.</p>
             <p>O problema não é simplesmente “falta de processo”. Também não significa que sua equipe não queira assumir responsabilidade. Muitas vezes, o que falta é transformar uma recorrência em uma estrutura clara: quem responde por ela, qual é o padrão mínimo, até onde a pessoa pode decidir e como acompanhar se aquilo está funcionando.</p>
             <p class="emphasis-line">É exatamente esse primeiro passo que vamos construir no workshop A Primeira Dependência.</p>
@@ -203,7 +203,7 @@ const renderSalesPage = (route) => {
           <div>
             <p class="eyebrow">CONSTRUÇÃO GUIADA</p>
             <h2>Não é uma aula para assistir passivamente</h2>
-            <p>Você entra com uma situação real da sua operação. Felipe demonstra como uma recorrência pode ser desmontada em partes claras e conduz o diagnóstico para que você aplique a mesma lógica no seu contexto.</p>
+            <p>Você entra com uma situação real da sua operação. Alesandra Galdino demonstra como uma recorrência pode ser desmontada em partes claras e conduz o diagnóstico para que você aplique a mesma lógica no seu contexto.</p>
             <p>A proposta não é sair com mais teoria sobre gestão. É sair sabendo por onde começar e com uma primeira estrutura feita.</p>
           </div>
         </div>
@@ -267,8 +267,8 @@ const renderSalesPage = (route) => {
           </div>
           <div>
             <p class="eyebrow">EXPERIÊNCIA NA OPERAÇÃO</p>
-            <h2>Sobre Felipe</h2>
-            <p>Felipe traz uma trajetória de mais de 10 anos no varejo. O material do projeto registra passagem pela gestão de sete lojas e trabalho com mais de 200 colaboradores e líderes em três empresas. Essa experiência é usada no workshop para aproximar o método da rotina real de operação, liderança e execução.</p>
+            <h2>Sobre Alesandra Galdino</h2>
+            <p>Alesandra Galdino traz uma trajetória de mais de 10 anos no varejo. O material do projeto registra passagem pela gestão de sete lojas e trabalho com mais de 200 colaboradores e líderes em três empresas. Essa experiência é usada no workshop para aproximar o método da rotina real de operação, liderança e execução.</p>
             <p>A autoridade aqui não depende de promessas de resultado nem de depoimentos fabricados. Ela aparece na demonstração do método, nos materiais de trabalho e na aplicação do raciocínio sobre uma dependência concreta.</p>
           </div>
         </div>
@@ -286,8 +286,8 @@ const renderSalesPage = (route) => {
             <div class="ticket-body">
               <span class="ticket-label">Investimento</span>
               <strong>R$ 197</strong>
-              <p>sessão ao vivo em 07 de outubro de 2026, às 9h</p>
-              ${cta("GARANTIR MEU INGRESSO PARA 07/10", "button button-primary button-full")}
+              <p>sessão ao vivo em ${event.dateLong}</p>
+              ${cta("GARANTIR MEU INGRESSO PARA 29/10", "button button-primary button-full")}
             </div>
           </aside>
         </div>
@@ -343,7 +343,7 @@ const renderSalesPage = (route) => {
             <p class="eyebrow">ROTA MAPP</p>
             <h2>O primeiro desenho não é o fim da rota</h2>
             <p>Uma recorrência organizada mostra o caminho. Mas uma operação pode ter várias dependências ligadas a pessoas, conhecimento, decisões, padrões, rotinas e indicadores.</p>
-            <p>Durante o workshop, Felipe apresenta como a Rota MAPP da Dependência à Autonomia amplia essa lógica para um conjunto prioritário de dependências ao longo de 8 semanas. O programa de escala é uma etapa separada, oferecida para quem quiser continuar a implantação com o método completo.</p>
+            <p>Durante o workshop, Alesandra Galdino apresenta como a Rota MAPP da Dependência à Autonomia amplia essa lógica para um conjunto prioritário de dependências ao longo de 8 semanas. O programa de escala é uma etapa separada, oferecida para quem quiser continuar a implantação com o método completo.</p>
             <p>A compra do workshop não obriga a entrada no programa de escala.</p>
           </div>
         </div>
@@ -380,14 +380,14 @@ const renderSalesPage = (route) => {
       <section class="section final-cta section-dark reveal">
         <div class="shell final-grid">
           <div>
-            <p class="eyebrow">07/10/2026 · 9H · AO VIVO</p>
+            <p class="eyebrow">29/10/2026 · 9H · AO VIVO</p>
             <h2>Comece pela recorrência que mais volta para você</h2>
             <p>Você não precisa resolver a operação inteira em uma manhã. Precisa escolher um ponto real de dependência e construir clareza suficiente para que ele deixe de depender apenas de uma resposta sua toda vez que se repete.</p>
           </div>
           <div class="final-card">
             <span>A Primeira Dependência</span>
             <strong>R$ 197</strong>
-            <p>07/10/2026 · 9h · ao vivo · 2h30</p>
+            <p>29/10/2026 · 9h · ao vivo · 2h30</p>
             ${cta("QUERO PARTICIPAR DO WORKSHOP", "button button-light button-full")}
           </div>
         </div>
@@ -395,7 +395,7 @@ const renderSalesPage = (route) => {
     </main>
 
     <footer class="site-footer">
-      <div class="shell"><span>A Primeira Dependência</span><span>07 de outubro de 2026 · 9h</span></div>
+      <div class="shell"><span>A Primeira Dependência</span><span>29 de outubro de 2026 · 9h</span></div>
     </footer>
   `;
 
@@ -464,3 +464,31 @@ if (resolvedPath === "/obrigado") {
   const route = resolvedPath.split("/").filter(Boolean)[0];
   renderSalesPage(route);
 }
+
+function identifyCopyBlocks(root) {
+  root.dataset.copyRoot = "";
+  let blockIndex = 0;
+  const digitFields = ["days", "hours", "minutes", "seconds"];
+
+  const visit = (element) => {
+    if (element.getAttribute("aria-hidden") === "true") return;
+    const digitField = digitFields.find((field) => element.hasAttribute(`data-${field}`));
+    if (digitField) {
+      element.dataset.copyDynamic = `timer-${digitField}`;
+      return;
+    }
+
+    const directText = [...element.childNodes].some(
+      (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim(),
+    );
+    if (directText) {
+      element.dataset.copyId = `copy-${String(++blockIndex).padStart(3, "0")}`;
+      return;
+    }
+    [...element.children].forEach(visit);
+  };
+
+  [...root.children].forEach(visit);
+}
+
+identifyCopyBlocks(app);

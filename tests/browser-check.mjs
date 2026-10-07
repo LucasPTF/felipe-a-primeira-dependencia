@@ -35,7 +35,7 @@ assert.equal(sharedCopies[2], sharedCopies[0], "As seções compartilhadas diver
 
 await page.goto(`${baseUrl}/obrigado`, { waitUntil: "networkidle" });
 assert.equal((await page.locator("h1").innerText()).trim(), "Inscrição confirmada.");
-assert.equal(await page.locator("text=07 de outubro de 2026, às 9h").isVisible(), true);
+assert.equal(await page.locator("text=29 de outubro de 2026, às 9h").isVisible(), true);
 
 await browser.close();
 console.log("Validação no navegador concluída: copy compartilhada, foco, CTAs, lotes e rota de confirmação.");

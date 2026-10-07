@@ -14,7 +14,7 @@ for (const required of [
   "Organize a primeira dependência.",
   "Delegar tarefa não delega decisão.",
   "Autonomia precisa de critério.",
-  "R$ 197",
+  "R$ 29,90",
   "29 de outubro de 2026, às 9h",
 ]) {
   assert.ok(content.includes(required), `Copy obrigatória ausente: ${required}`);

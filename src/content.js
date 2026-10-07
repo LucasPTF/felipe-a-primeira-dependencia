@@ -1,10 +1,18 @@
+export const lots = [
+  { name: "Lote 1", price: "R$ 29,90", current: true, state: "Atual" },
+  { name: "Lote 2", price: "R$ 79,90", current: false, state: "Próximo" },
+  { name: "Lote 3", price: "R$ 197", current: false, state: "Próximo" },
+];
+
+const currentLot = lots.find((lot) => lot.current);
+
 export const event = {
   name: "A Primeira Dependência",
   dateLong: "29 de outubro de 2026, às 9h",
-  dateCompact: "29/10/2026 · 9h · ao vivo · 2h30 · R$ 197",
+  dateCompact: `29/10/2026 · 9h · ao vivo · 2h30 · ${currentLot.price}`,
   dateIso: "2026-10-29T09:00:00-03:00",
   duration: "2h30",
-  price: "R$ 197",
+  price: currentLot.price,
 };
 
 export const heroes = {
@@ -26,7 +34,7 @@ export const heroes = {
       "No workshop A Primeira Dependência, você escolhe uma dessas decisões recorrentes e a transforma no primeiro desenho operacional dentro da lógica MAPP.",
       "Demonstração ao vivo do método + experiência prática da Alesandra Galdino em gestão de operações de varejo.",
     ],
-    cta: "QUERO ORGANIZAR ESSA DECISÃO · R$ 197",
+    cta: `QUERO ORGANIZAR ESSA DECISÃO · ${event.price}`,
   },
   a3: {
     kicker: "PARA LÍDERES QUE NÃO QUEREM CULPAR A EQUIPE POR TODA DÚVIDA",
@@ -38,7 +46,7 @@ export const heroes = {
       "A Primeira Dependência cria esse primeiro desenho sobre um caso real da sua operação, sem tentar reorganizar a empresa inteira de uma vez.",
       "Processo demonstrado ao vivo, ficha aplicada e experiência da Alesandra Galdino com equipes e gestão de lojas.",
     ],
-    cta: "QUERO CRIAR AUTONOMIA COM CRITÉRIO · R$ 197",
+    cta: `QUERO CRIAR AUTONOMIA COM CRITÉRIO · ${event.price}`,
   },
 };
 
@@ -130,7 +138,7 @@ export const faq = [
       "Não. Leve uma dúvida, decisão, erro ou cobrança que se repete e costuma voltar para você. O trabalho da sessão começa justamente pela escolha e pelo diagnóstico dessa recorrência.",
   },
   {
-    question: "A gravação está incluída no ingresso de R$ 197?",
+    question: `A gravação está incluída no ingresso de ${event.price}?`,
     answer:
       "O ingresso base é para a participação ao vivo. A gravação vitalícia aparece como complemento opcional junto com o Caderno de Aplicação.",
   },
@@ -152,6 +160,6 @@ export const faq = [
   {
     question: "Qual é o investimento?",
     answer:
-      "R$ 197 para o workshop ao vivo. Recursos adicionais podem ser oferecidos separadamente no checkout.",
+      `${event.price} para o workshop ao vivo. Recursos adicionais podem ser oferecidos separadamente no checkout.`,
   },
 ];

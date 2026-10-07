@@ -6,6 +6,7 @@ import {
   faq,
   heroes,
   included,
+  lots,
   mappSteps,
   notAudience,
   objections,
@@ -103,7 +104,7 @@ const renderSalesPage = (route) => {
         <span class="brand-symbol">M</span>
         <span>A Primeira Dependência</span>
       </a>
-      <a class="header-cta" href="#ingresso">R$ 197 ${icon("arrow")}</a>
+      <a class="header-cta" href="#ingresso">${event.price} ${icon("arrow")}</a>
     </header>
 
     <main id="conteudo">
@@ -124,7 +125,7 @@ const renderSalesPage = (route) => {
             </div>
             <div class="hero-actions hero-enter">
               ${cta(hero.cta)}
-              <span class="price-note">ingresso: R$ 197</span>
+              <span class="price-note">ingresso: ${event.price}</span>
             </div>
           </div>
           <div class="hero-visual hero-enter">
@@ -285,7 +286,7 @@ const renderSalesPage = (route) => {
             <div class="ticket-top"><span>A Primeira Dependência</span><span>AO VIVO</span></div>
             <div class="ticket-body">
               <span class="ticket-label">Investimento</span>
-              <strong>R$ 197</strong>
+              <strong>${event.price}</strong>
               <p>sessão ao vivo em ${event.dateLong}</p>
               ${cta("GARANTIR MEU INGRESSO PARA 29/10", "button button-primary button-full")}
             </div>
@@ -298,9 +299,7 @@ const renderSalesPage = (route) => {
             <h3>Três etapas de ingresso</h3>
           </div>
           <div class="lotes-grid" role="list" aria-label="Comparação de lotes">
-            <article class="lote-card is-current" role="listitem"><span>Lote 1</span><strong>R$ 29,90</strong><small>Atual</small></article>
-            <article class="lote-card is-next" role="listitem"><span>Lote 2</span><strong>R$ 79,90</strong><small>Próximo</small></article>
-            <article class="lote-card is-next" role="listitem"><span>Lote 3</span><strong>R$ 197</strong><small>Próximo</small></article>
+            ${lots.map((lot) => `<article class="lote-card ${lot.current ? "is-current" : "is-next"}" role="listitem"><span>${lot.name}</span><strong>${lot.price}</strong><small>${lot.state}</small></article>`).join("")}
           </div>
         </div>
       </section>
@@ -386,7 +385,7 @@ const renderSalesPage = (route) => {
           </div>
           <div class="final-card">
             <span>A Primeira Dependência</span>
-            <strong>R$ 197</strong>
+            <strong>${event.price}</strong>
             <p>29/10/2026 · 9h · ao vivo · 2h30</p>
             ${cta("QUERO PARTICIPAR DO WORKSHOP", "button button-light button-full")}
           </div>

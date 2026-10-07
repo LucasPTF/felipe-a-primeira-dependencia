@@ -21,6 +21,15 @@ for (const [route, title] of Object.entries(expectedHeroes)) {
   assert.equal(await page.locator(".lote-card").count(), 3, `Comparação de lotes incompleta em ${route}`);
   assert.equal((await page.locator(".lote-card.is-current > span").innerText()).trim(), "LOTE 1", `Lote atual incorreto em ${route}`);
   assert.equal((await page.locator(".lote-card.is-current small").innerText()).trim(), "Atual", `Estado do lote 1 incorreto em ${route}`);
+  const currentPrice = (await page.locator(".lote-card.is-current strong").innerText()).trim();
+  assert.equal(currentPrice, "R$ 29,90", `Preço do lote vigente incorreto em ${route}`);
+  for (const selector of [".header-cta", ".ticket-body > strong", ".final-card > strong"]) {
+    assert.equal((await page.locator(selector).innerText()).trim(), currentPrice, `Investimento diverge do lote vigente em ${route}: ${selector}`);
+  }
+  assert.equal((await page.locator(".price-note").innerText()).trim(), `ingresso: ${currentPrice}`);
+  assert.ok((await page.locator(".faq-list").textContent()).includes(`ingresso de ${currentPrice}?`));
+  assert.ok((await page.locator(".faq-list").textContent()).includes(`${currentPrice} para o workshop ao vivo.`));
+  if (route !== "/a1") assert.ok((await page.locator(".hero-actions a").innerText()).trim().endsWith(currentPrice));
 
   const shared = await page.locator("main > section:not(.hero):not(.event-bar)").allInnerTexts();
   sharedCopies.push(shared.join("\n").replace(/\s+/g, " ").trim());
